@@ -90,3 +90,80 @@ test_y_ = regr.predict(test_x)
 print("Mean absolute error: %.2f" % np.mean(np.absolute(test_y_ - test_y)))
 print("Residual sum of squares (MSE): %.2f" % np.mean((test_y_ - test_y) ** 2))
 print("R2-score: %.2f" % r2_score(test_y , test_y_) )
+
+
+from PIL import Image
+import os
+
+
+def convert_to_jpg(input_file):
+    try:
+        # Open the image file
+        img = Image.open(input_file)
+
+        # Define output file name with .jpg extension
+        output_file = os.path.splitext(input_file)[0] + '.jpg'
+
+        # Convert and save as .jpg
+        img.convert('RGB').save(output_file, 'JPEG')
+        print(f"Successfully converted to {output_file}")
+
+    except Exception as e:
+        print(f"Error converting file: {e}")
+
+
+# Specify your input file path
+input_file = 'C:/Users/nikhilp/PycharmProjects/master/cctv_images/68--2.jpg'
+convert_to_jpg(input_file)
+
+import imghdr
+from PIL import Image
+
+
+def repair_image(file_path):
+    try:
+        # Check if the file has a valid image format
+        image_type = imghdr.what(file_path)
+        if image_type is None:
+            print(f"File {file_path} is not a valid image or is corrupted.")
+            return
+
+        print(f"Detected image type: {image_type}")
+
+        # Try to open the file using PIL
+        img = Image.open(file_path)
+
+        # Convert and save the image as JPG
+        output_file = file_path.replace('.jpg', '_repaired.jpg')
+        img.convert('RGB').save(output_file, 'JPEG')
+        print(f"Successfully repaired and saved as {output_file}")
+
+    except Exception as e:
+        print(f"Error repairing image: {e}")
+
+
+# Specify your file path
+file_path = 'C:/Users/nikhilp/PycharmProjects/master/cctv_images/68--2.jpg'
+repair_image(file_path)
+
+
+def rewrite_image_as_binary(input_file, output_file):
+    try:
+        with open(input_file, 'rb') as file:
+            binary_data = file.read()
+
+        # Write the binary data to a new file to try and recover any usable content
+        with open(output_file, 'wb') as new_file:
+            new_file.write(binary_data)
+
+        print(f"Rewritten binary data to {output_file}.")
+
+    except Exception as e:
+        print(f"Error during binary rewriting: {e}")
+
+
+# Specify your file paths
+input_file = 'C:/Users/nikhilp/PycharmProjects/master/cctv_images/68--2.jpg'
+output_file = 'C:/Users/nikhilp/PycharmProjects/master/cctv_images/68--2_rewritten.jpg'
+
+rewrite_image_as_binary(input_file, output_file)
