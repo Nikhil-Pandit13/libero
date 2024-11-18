@@ -27,5 +27,5 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 finally:
-    time.sleep(5)
+    time.sleep(5)  # no quit
 
