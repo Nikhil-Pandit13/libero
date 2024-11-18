@@ -1,3 +1,6 @@
+# =============================================================
+# Python libraries
+# =============================================================
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -5,6 +8,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 import time
 import undetected_chromedriver as uc
+
+# USE CASE: Open an event the moment it appears on BookMyShow
 
 driver = uc.Chrome()
 url = "https://in.bookmyshow.com/events/coldplay-music-of-the-spheres-world-tour/ET00419733"
