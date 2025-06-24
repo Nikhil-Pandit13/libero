@@ -1,0 +1,9 @@
+# CHATGPT
+openai
+gradio
+python-dotenv
+
+# HUGGING FACE
+transformers
+torch
+gradio
