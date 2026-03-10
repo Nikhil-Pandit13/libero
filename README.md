@@ -14,5 +14,3 @@ elaborate on the features and services my scripts provide. Use the table of cont
 ## BookMyShow
 - load any event page and refresh it until 'Book' option appears
 - clicks on 'Book' option and kills script to ensure you enter the queue; you may now manually select your preferences
-
-
